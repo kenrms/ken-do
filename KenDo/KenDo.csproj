@@ -149,6 +149,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MyTasksController.cs" />
     <Compile Include="DAL\KenDoContext.cs" />
     <Compile Include="DAL\KenDoInitializer.cs" />
     <Compile Include="Global.asax.cs">
@@ -194,6 +195,11 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\MyTasks\Create.cshtml" />
+    <Content Include="Views\MyTasks\Delete.cshtml" />
+    <Content Include="Views\MyTasks\Details.cshtml" />
+    <Content Include="Views\MyTasks\Edit.cshtml" />
+    <Content Include="Views\MyTasks\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
