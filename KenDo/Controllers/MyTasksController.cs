@@ -1,5 +1,6 @@
 ﻿using KenDo.DAL;
 using KenDo.Models;
+using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -43,10 +44,11 @@ namespace KenDo.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Description,IsComplete,DateModified,DateCompleted")] MyTask myTask)
+        public ActionResult Create([Bind(Include = "ID,Description")] MyTask myTask)
         {
             if (ModelState.IsValid)
             {
+                myTask.DateModified = DateTime.Now;
                 db.MyTasks.Add(myTask);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -79,6 +81,7 @@ namespace KenDo.Controllers
         {
             if (ModelState.IsValid)
             {
+                myTask.DateModified = DateTime.Now;
                 db.Entry(myTask).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -109,6 +112,20 @@ namespace KenDo.Controllers
             MyTask myTask = db.MyTasks.Find(id);
             db.MyTasks.Remove(myTask);
             db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        // GET: MyTasks/ToggleComplete/5
+        public ActionResult ToggleComplete(int id)
+        {
+            var myTask = db.MyTasks.Find(id);
+            if (myTask == null) return HttpNotFound();
+
+            myTask.IsComplete = !myTask.IsComplete;
+            myTask.DateCompleted = myTask.IsComplete ? DateTime.Now : (DateTime?)null;
+
+            db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 
