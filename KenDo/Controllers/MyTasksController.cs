@@ -15,7 +15,8 @@ namespace KenDo.Controllers
         // GET: MyTasks
         public ActionResult Index()
         {
-            return View(db.MyTasks.ToList());
+            //return View(db.MyTasks.ToList());
+            return View();
         }
 
         // GET: MyTasks/Details/5
