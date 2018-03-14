@@ -200,9 +200,17 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="tslint.json" />
     <Content Include="tsconfig.json" />
+    <Content Include="Views\MyTasks\Create.cshtml" />
+    <Content Include="Views\MyTasks\Delete.cshtml" />
+    <Content Include="Views\MyTasks\Details.cshtml" />
+    <Content Include="Views\MyTasks\Edit.cshtml" />
+    <Content Include="Views\MyTasks\Index.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -1,53 +1,31 @@
-﻿<div class="row">
-    <div class="col-xs-12">
-        <kendo-app>
-            Loading Task Application...
-        </kendo-app>
-    </div>
-</div>
-
-@section scripts {
-    <!-- Polyfill(s) for older browsers -->
-    <script src="/node_modules/core-js/client/shim.min.js"></script>
-
-    <script src="/node_modules/zone.js/dist/zone.js"></script>
-    <script src="/node_modules/systemjs/dist/system.src.js"></script>
-
-    <script src="/src/systemjs.config.js"></script>
-    <script>
-        System.import('/src/main.js').catch(function (err) { console.error(err); });
-    </script>
+﻿@section scripts {
 }
-
-@*@model IEnumerable<KenDo.Models.MyTask>
-
-    @{
-        ViewBag.Title = "Index";
-    }
-
-    <h2>Index</h2>
-
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsComplete)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateModified)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateCompleted)
-            </th>
-            <th></th>
-        </tr>
-
-    @foreach (var item in Model) {
+@model IEnumerable<KenDo.Models.MyTask>
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Index</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsComplete)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateModified)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateCompleted)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
@@ -68,5 +46,4 @@
             </td>
         </tr>
     }
-
-    </table>*@
+</table>
