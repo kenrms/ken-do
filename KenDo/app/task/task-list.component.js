@@ -7,17 +7,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var AppComponent = /** @class */ (function () {
-    function AppComponent() {
-        this.name = 'Angular';
+var task_model_1 = require("./task.model");
+var TaskListComponent = /** @class */ (function () {
+    function TaskListComponent() {
+        this.tasks = [
+            new task_model_1.Task('Do laundry', true),
+            new task_model_1.Task('Panic', false)
+        ];
     }
-    AppComponent = __decorate([
+    TaskListComponent.prototype.onTaskAdded = function (task) {
+        this.tasks.push(task);
+    };
+    TaskListComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            templateUrl: './app.component.html'
+            selector: 'app-task-list',
+            templateUrl: './task-list.component.html'
         })
-    ], AppComponent);
-    return AppComponent;
+    ], TaskListComponent);
+    return TaskListComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.TaskListComponent = TaskListComponent;
+//# sourceMappingURL=task-list.component.js.map
