@@ -8,6 +8,9 @@ using System.Web.Mvc;
 
 namespace KenDo.Controllers
 {
+    /// <summary>
+    /// Only used by MVC version
+    /// </summary>
     public class MyTasksController : Controller
     {
         private KenDoContext db = new KenDoContext();

@@ -8,21 +8,10 @@ import { Task } from './task.model'
 export class TaskListComponent {
     hideCompleted: boolean;
 
-    tasks: Task[] = [
-        new Task('Do laundry', true),
-        new Task('Panic', false),
-        new Task('Bust a move', false)
-    ];
+    tasks: Task[] = [];
 
     onTaskAdded(task: Task) {
         this.tasks.push(task);
-    }
-
-    addNewTask(task: Task) {
-        if (!task)
-            throw new Error('Not implemented');
-
-        this.tasks.unshift(task);
     }
 
     // There's probably a better way to do this
@@ -36,6 +25,12 @@ export class TaskListComponent {
             return false;
         } else {
             return (this.tasks && this.tasks.length > 0);
+        }
+    }
+
+    addTasks(tasks: Task[]) {
+        for (let t of tasks) {
+            this.tasks.unshift(t);
         }
     }
 }
