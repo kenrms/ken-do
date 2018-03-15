@@ -2,7 +2,13 @@
     cursor: pointer;
 }
 
-taskItem busy {
-    cursor: auto;
-    background-color: orange;   /*debug*/
+    taskItem busy {
+        cursor: auto;
+        background-color: orange; /*debug*/
+    }
+
+input.hideBorder {
+    border: none !important;
+    box-shadow: none !important;
+    cursor: pointer;
 }

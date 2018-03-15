@@ -15,7 +15,7 @@ export class TaskItemComponent {
 
     constructor(private taskService: TaskService) { }
 
-    onBlur(event: FocusEvent) {
+    trySave(event: FocusEvent) {
         // inavlid if it's empty
         if (this.task.description.length === 0) {
             // so restore the old description
@@ -25,6 +25,8 @@ export class TaskItemComponent {
         else if (this.oldDesc !== this.task.description) {
             this.doSave();
         }
+
+        this.oldDesc = '';
     }
 
     onFocus(event: FocusEvent) {

@@ -1,20 +1,23 @@
 ﻿<div class="row">
     <div class="col-xs-12">
         <form class="form-inline">
-            <label class="sr-only" for="inlineFormInputName2">Description</label>
-            <input type="text"
-                   class="form-control mb-2 mr-sm-2"
-                   name="createTaskDesc"
-                   placeholder="Do a thing..."
-                   [disabled]="busy"
-                   [(ngModel)]="newTaskDesc">
-            <button type="submit"
-                    class="btn btn-primary mb-2"
-                    (click)="createTask()"
-                    [disabled]="busy || newTaskDesc.length === 0">
-                Add Task
-            </button>
+            <div class="col-xs-6">
+                <label class="sr-only" for="inlineFormInputName2">Description</label>
+                <input type="text"
+                       class="form-control mb-2 mr-sm-2"
+                       name="createTaskDesc"
+                       placeholder="Do a thing..."
+                       [disabled]="busy"
+                       [(ngModel)]="newTaskDesc">
+            </div>
+            <div class="col-xs-3">
+                <button type="submit"
+                        class="btn btn-primary mb-2"
+                        (click)="createTask()"
+                        [disabled]="busy || newTaskDesc.length === 0">
+                    Add Task
+                </button>
+            </div>
         </form>
     </div>
 </div>
-
