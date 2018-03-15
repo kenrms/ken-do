@@ -21,7 +21,7 @@
     "lint": "tslint ./app/**/*.ts -t verbose"
   },
   "keywords": [],
-  "author": "",
+  "author": "Kenneth Ramos",
   "license": "MIT",
   "dependencies": {
     "@angular/common": "^5.2.9",

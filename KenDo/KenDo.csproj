@@ -161,7 +161,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\MyTasksController.cs" />
     <Compile Include="Controllers\TasksController.cs" />
     <Compile Include="DAL\IKenDoContext.cs" />
     <Compile Include="DAL\KenDoContext.cs" />
@@ -235,13 +234,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="tslint.json" />
     <Content Include="tsconfig.json" />
-    <Content Include="Views\MyTasks\Create.cshtml" />
-    <Content Include="Views\MyTasks\Delete.cshtml" />
-    <Content Include="Views\MyTasks\Details.cshtml" />
-    <Content Include="Views\MyTasks\Edit.cshtml" />
-    <Content Include="Views\MyTasks\Index.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper-utils.min.js.map" />
@@ -249,7 +241,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

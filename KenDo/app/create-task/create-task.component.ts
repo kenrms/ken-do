@@ -1,4 +1,4 @@
-﻿import { EventEmitter, Component, Output } from '@angular/core';
+﻿import { EventEmitter, Component, Output, ElementRef } from '@angular/core';
 import { Task } from '../task.model';
 import { TaskService } from '../task.service';
 
@@ -23,10 +23,10 @@ export class CreateTaskComponent {
                 this.taskCreated.emit(data);
             },
             err => console.error(err),  // TODO handle error
-            () => {
-                this.newTaskDesc = '';
-                this.busy = false;
-            }
+              () => {
+                  this.newTaskDesc = '';
+                  this.busy = false;
+              }
         );
     }
 }
