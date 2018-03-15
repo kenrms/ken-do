@@ -1,13 +1,17 @@
 ﻿import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Task } from './task-list/task.model';
 
 @Injectable()
 export class TaskService {
 
     constructor(private http: HttpClient) { }
 
-    // Uses http.get() to load data from a single API endpoint
     getTasks() {
         return this.http.get('/api/tasks');
+    }
+
+    createTask(task: Task) {
+        return this.http.post('/api/tasks', task);
     }
 }

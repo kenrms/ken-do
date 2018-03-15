@@ -18,17 +18,11 @@ export class AppComponent implements OnInit {
 
     ngOnInit() {
         this.taskService.getTasks().subscribe(
-            data => {
-                console.log(data);
-                const tasks:Task[] = Object.keys(data).map(i => {
-                    let t = data[i];
-                    let task = new Task(t.Description, t.IsComplete);
-                    return task;
-                });
-                this.taskListComponent.addTasks(tasks);
+            (data: Task[]) => {
+                this.taskListComponent.addTasks(data);
             },
-            err => console.error(err),
-            () => {}
+            err => console.error(err),  // TODO handle error
+            () => { }
         );
     }
 }

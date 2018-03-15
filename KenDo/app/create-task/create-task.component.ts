@@ -1,5 +1,6 @@
 ﻿import { EventEmitter, Component, Output } from '@angular/core';
 import { Task } from '../task-list/task.model';
+import { TaskService } from '../task.service';
 
 @Component({
     selector: 'app-create-task',
@@ -11,16 +12,21 @@ export class CreateTaskComponent {
     busy = false;
     newTaskDesc = '';
 
+    constructor(private taskService: TaskService) { }
+
     createTask() {
         this.busy = true;
-
-        // TODO call api to create
         const newTask = new Task(this.newTaskDesc, false);
 
-        // emit event now that we're done; TODO replace null arg with resultant Task
-        this.taskCreated.emit(newTask);
-        this.newTaskDesc = '';
-
-        this.busy = false;
+        this.taskService.createTask(newTask).subscribe(
+            (data: Task) => {
+                this.taskCreated.emit(data);
+            },
+            err => console.error(err),  // TODO handle error
+            () => {
+                this.newTaskDesc = '';
+                this.busy = false;
+            }
+        );
     }
 }
