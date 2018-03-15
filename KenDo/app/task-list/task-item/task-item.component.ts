@@ -11,6 +11,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class TaskItemComponent {
     @Input() task: Task;
     @Output() onDeleted = new EventEmitter<number>();
+    @Output() onUpdated = new EventEmitter<Task>();
     isEditing: boolean;
     isBusy: boolean;
     private oldDesc = '';
@@ -44,6 +45,7 @@ export class TaskItemComponent {
         this.taskService.editTask(this.task).subscribe(
             (data: Task) => {
                 this.task = data;
+                this.onUpdated.emit(this.task);
             },
             err => console.error(err),   // TODO handle error
             () => {
@@ -67,6 +69,7 @@ export class TaskItemComponent {
         this.taskService.toggleComplete(this.task.id).subscribe(
             (data: Task) => {
                 this.task = data;
+                this.onUpdated.emit(this.task);
             },
             err => console.error(err),   // TODO handle error
             () => {

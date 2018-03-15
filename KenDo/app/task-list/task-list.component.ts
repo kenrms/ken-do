@@ -7,7 +7,7 @@ import { Task } from '../task.model'
 })
 export class TaskListComponent {
     hideCompleted: boolean;
-
+    sortByComplete: boolean = true;
     tasks: Task[] = [];
 
     onTaskAdded(task: Task) {
@@ -35,6 +35,15 @@ export class TaskListComponent {
     }
 
     handleTaskDeleted(id: number) {
+        this.deleteTask(id);
+    }
+
+    handleTaskUpdated(task: Task) {
+        this.deleteTask(task.id);
+        this.tasks.push(task);
+    }
+
+    private deleteTask(id: number) {
         let index = -1;
         for (let i = 0; i < this.tasks.length; i++) {
             if (id === this.tasks[i].id) {

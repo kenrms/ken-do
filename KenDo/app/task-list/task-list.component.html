@@ -7,10 +7,11 @@
 <div class="row">
     <div class="col-xs-12">
         <ul class="list-group" *ngIf="showingAnyTasks(); else noTasks">
-            <app-task-item *ngFor="let t of tasks"
+            <app-task-item *ngFor="let t of tasks | taskSort:sortByComplete"
                            [task]="t"
                            [hidden]="taskItem.task.isComplete && hideCompleted"
                            (onDeleted)="handleTaskDeleted($event)"
+                           (onUpdated)="handleTaskUpdated($event)"
                            #taskItem></app-task-item>
         </ul>
     </div>
