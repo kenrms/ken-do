@@ -8,7 +8,14 @@ namespace KenDo.Controllers
 {
     public class TasksController : ApiController
     {
-        private readonly KenDoContext _db = new KenDoContext();
+        private readonly IKenDoContext _db = new KenDoContext();
+
+        public TasksController() { }
+
+        public TasksController(IKenDoContext context)
+        {
+            _db = context;
+        }
 
         [Route("api/tasks")]
         [HttpGet]
@@ -61,8 +68,6 @@ namespace KenDo.Controllers
             var resultTask = _db.MyTasks.Add(newTask);
             _db.SaveChanges();
 
-            // TODO handle error
-
             return Ok(new TaskDto(resultTask));
         }
 
@@ -76,6 +81,8 @@ namespace KenDo.Controllers
             // The only thing that really gets edited is the description
             task.Description = value.Description;
             task.DateModified = DateTime.Now;
+
+            _db.MarkAsModified(task);
 
             _db.SaveChanges();
             return Ok(new TaskDto(task));

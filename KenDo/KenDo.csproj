@@ -163,6 +163,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MyTasksController.cs" />
     <Compile Include="Controllers\TasksController.cs" />
+    <Compile Include="DAL\IKenDoContext.cs" />
     <Compile Include="DAL\KenDoContext.cs" />
     <Compile Include="DAL\KenDoInitializer.cs" />
     <Compile Include="Global.asax.cs">
