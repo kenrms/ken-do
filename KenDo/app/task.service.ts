@@ -14,4 +14,9 @@ export class TaskService {
     createTask(task: Task) {
         return this.http.post('/api/tasks', task);
     }
+
+    editTask(task: Task) {
+        return this.http.put(`/api/tasks/${task.id}`, task);
+    }
+
 }

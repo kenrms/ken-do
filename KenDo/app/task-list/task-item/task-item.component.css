@@ -1,0 +1,8 @@
+﻿taskItem {
+    cursor: pointer;
+}
+
+taskItem busy {
+    cursor: auto;
+    background-color: orange;   /*debug*/
+}

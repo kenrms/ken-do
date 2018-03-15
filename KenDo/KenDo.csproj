@@ -175,6 +175,7 @@
   <ItemGroup>
     <Content Include="app\app.component.html" />
     <Content Include="app\create-task\create-task.component.html" />
+    <Content Include="app\task-list\task-item\task-item.component.css" />
     <Content Include="app\task-list\task-item\task-item.component.html" />
     <Content Include="app\task-list\task-list.component.html" />
     <Content Include="Content\bootstrap.css" />

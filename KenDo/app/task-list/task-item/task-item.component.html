@@ -1,5 +1,27 @@
-﻿<a class="list-group-item"
-   style="cursor: pointer"
-   (click)="toggleComplete()">
-    {{ task.description }} ({{ task.isComplete }}) 
-</a>
+﻿<div class="list-group-item taskItem clearfix"
+     [ngClass]="{ 'busy': isBusy }">
+
+    <div class="col-xs-10">
+        <form class="form-inline" #taskForm="ngForm">
+            <div class="form-group">
+                <input type="text"
+                       class="form-control mb-2 mr-sm-2"
+                       (blur)="onBlur($event)"
+                       (focus)="onFocus($event)"
+                       name="desc"
+                       required
+                       placeholder="Do a thing..."
+                       [disabled]="isBusy"
+                       [(ngModel)]="task.description"
+                       #desc="ngModel">
+            </div>
+        </form>
+    </div>
+
+    <div class="col-xs-2">
+        <a (click)="toggleComplete()">
+            ({{ task.isComplete ? 'COMPLETE' : 'TBD...' }})
+        </a>
+    </div>
+
+</div>
