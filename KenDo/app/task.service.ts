@@ -19,4 +19,8 @@ export class TaskService {
         return this.http.put(`/api/tasks/${task.id}`, task);
     }
 
+    toggleComplete(id: number) {
+        return this.http.post(`/api/tasks/${id}/toggleComplete`, null);
+    }
+
 }

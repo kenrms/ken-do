@@ -4,14 +4,18 @@
         <label class="form-check-label" for="hideCheck">Hide completed tasks</label>
     </div>
 </div>
-
 <div class="row">
     <div class="col-xs-12">
         <ul class="list-group" *ngIf="showingAnyTasks(); else noTasks">
-            <app-task-item *ngFor="let t of tasks" [task]="t" [hidden]="hideCompleted && t.isComplete"></app-task-item>
+            <app-task-item *ngFor="let t of tasks"
+                           [task]="t"
+                           [hidden]="taskItem.task.isComplete && hideCompleted"
+                           #taskItem></app-task-item>
         </ul>
-        <ng-template #noTasks>
-            <h3>Nothing to do!</h3>
-        </ng-template>
     </div>
 </div>
+
+
+<ng-template #noTasks>
+    <h3>Nothing to do!</h3>
+</ng-template>

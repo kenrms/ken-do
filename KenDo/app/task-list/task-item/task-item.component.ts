@@ -12,6 +12,7 @@ export class TaskItemComponent {
     isEditing: boolean;
     isBusy: boolean;
     private oldDesc = '';
+    selected = false;
 
     constructor(private taskService: TaskService) { }
 
@@ -26,7 +27,7 @@ export class TaskItemComponent {
             this.doSave();
         }
 
-        this.oldDesc = '';
+        this.stopEditing();
     }
 
     onFocus(event: FocusEvent) {
@@ -50,15 +51,24 @@ export class TaskItemComponent {
 
     startEditing() {
         this.oldDesc = this.task.description;
+        this.selected = true;
     }
 
-
-    // TODO use api
-    markComplete() {
-        this.task.isComplete = true;
+    stopEditing() {
+        this.oldDesc = '';
+        this.selected = false;
     }
 
     toggleComplete() {
-        this.task.isComplete = !this.task.isComplete;
+        this.isBusy = true;
+
+        this.taskService.toggleComplete(this.task.id).subscribe(
+            (data: Task) => {
+                this.task = data;
+            },
+            err => console.error(err),   // TODO handle error
+            () => {
+                this.isBusy = false;
+            });
     }
 }

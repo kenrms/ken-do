@@ -9,6 +9,7 @@ import { TaskService } from './task.service';
 })
 export class AppComponent implements OnInit {
     @ViewChild(TaskListComponent) private taskListComponent: TaskListComponent;
+    loading: boolean;
 
     constructor(private taskService: TaskService) { }
 
@@ -17,12 +18,16 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.loading = true;
+
         this.taskService.getTasks().subscribe(
             (data: Task[]) => {
                 this.taskListComponent.addTasks(data);
             },
             err => console.error(err),  // TODO handle error
-            () => { }
+            () => {
+                this.loading = false;
+            }
         );
     }
 }

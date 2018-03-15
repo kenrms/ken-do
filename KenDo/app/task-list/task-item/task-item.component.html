@@ -1,25 +1,30 @@
-﻿<div class="list-group-item taskItem clearfix"
-     [ngClass]="{ 'busy': isBusy }">
+﻿<div class="list-group-item clearfix taskItem"
+     [ngClass]="{ 'busy': isBusy, 'complete': task.isComplete }">
 
-    <div class="col-xs-8">
-        <form class="form-inline" #taskForm="ngForm" (ngSubmit)="trySave($event)">
-            <input type="text"
-                   class="form-control mb-2 mr-sm-2"
-                   [ngClass]="{ 'hideBorder': !oldDesc }"
-                   (blur)="taskForm.ngSubmit.emit()"
-                   (focus)="onFocus($event)"
-                   name="desc"
-                   required
-                   placeholder="Do a thing..."
-                   [disabled]="isBusy"
-                   [(ngModel)]="task.description">
-        </form>
-    </div>
-
-    <div class="col-xs-3 pull-right">
-        <a (click)="toggleComplete()">
-            ({{ task.isComplete ? 'COMPLETE' : 'TBD...' }})
-        </a>
+    <div class="form-check form-check-inline">
+        <div class="col-xs-1">
+            <input class="form-check-input"
+                   type="checkbox"
+                   id="hideCheck"
+                   [(ngModel)]="task.isComplete"
+                   (click)="toggleComplete()"
+                   [disabled]="isBusy">
+        </div>
+        <div class="col-xs-11">
+            <form class="form-inline" #taskForm="ngForm" (ngSubmit)="trySave($event)">
+                <input type="text"
+                       class="form-control mb-2 mr-sm-2"
+                       [ngClass]="{ 'hideBorder': !oldDesc }"
+                       (blur)="taskForm.ngSubmit.emit()"
+                       (focus)="onFocus($event)"
+                       name="desc"
+                       required
+                       placeholder="Do a thing..."
+                       [disabled]="isBusy"
+                       [(ngModel)]="task.description"
+                       #descInput>
+            </form>
+        </div>
     </div>
 
 </div>

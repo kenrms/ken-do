@@ -1,14 +1,17 @@
-﻿taskItem {
-    cursor: pointer;
-}
-
-    taskItem busy {
-        cursor: auto;
-        background-color: orange; /*debug*/
-    }
-
-input.hideBorder {
+﻿input.hideBorder {
     border: none !important;
     box-shadow: none !important;
     cursor: pointer;
+    background: none;
+}
+
+.complete input {
+    text-decoration: line-through;
+}
+
+input[type=checkbox] {
+    -ms-transform: scale(2.0);
+    -webkit-transform: scale(2.0);
+    transform: scale(2.0);
+    margin-top: 10px;
 }

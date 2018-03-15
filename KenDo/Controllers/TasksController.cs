@@ -1,8 +1,8 @@
-﻿using System;
+﻿using KenDo.DAL;
+using KenDo.Models;
+using System;
 using System.Linq;
 using System.Web.Http;
-using KenDo.DAL;
-using KenDo.Models;
 
 namespace KenDo.Controllers
 {
@@ -33,6 +33,9 @@ namespace KenDo.Controllers
             if (task == null) return NotFound();
 
             task.IsComplete = !task.IsComplete;
+            task.DateCompleted = task.IsComplete ? DateTime.Now : null as DateTime?;
+            task.DateModified = DateTime.Now;
+
             _db.SaveChanges();
 
             return Ok(new TaskDto(task));
@@ -72,12 +75,12 @@ namespace KenDo.Controllers
 
             // The only thing that really gets edited is the description
             task.Description = value.Description;
-            //task.DateModified = DateTime.Now; // Don't update this for now, since we want to preserve order by date at the moment
+            task.DateModified = DateTime.Now;
 
             _db.SaveChanges();
             return Ok(new TaskDto(task));
         }
-        
+
         [Route("api/tasks/{id}")]
         [HttpDelete]
         public IHttpActionResult DeleteTask(int id)

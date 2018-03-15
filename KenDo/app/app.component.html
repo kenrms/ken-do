@@ -1,9 +1,12 @@
 ﻿<div class="container">
     <div class="row" style="margin-top: 20px;">
-        <div class="col-md-12">
+        <div class="col-md-12" [hidden]="loading">
             <app-create-task (taskCreated)="handleNewTask($event)" #createTask></app-create-task>
             <hr />
             <app-task-list #taskList></app-task-list>
+        </div>
+        <div class="col-md-12" *ngIf="loading">
+            <h2>Loading Tasks...</h2>
         </div>
     </div>
 </div>
