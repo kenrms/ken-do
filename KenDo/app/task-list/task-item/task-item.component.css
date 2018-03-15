@@ -21,4 +21,18 @@ button.deleteBtn {
     border-radius: 30px;
     padding: 1px 6px;
     margin-top: 5px;
+    visibility: hidden;
 }
+
+.taskItem {
+    padding: 10px 15px;
+}
+
+.taskItem:hover {
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+}
+
+    .taskItem:hover button {
+        visibility: visible;
+    }
