@@ -267,7 +267,7 @@
     <TypeScriptCompile Include="app\main.ts" />
     <TypeScriptCompile Include="app\task-list\task-item\task-item.component.ts" />
     <TypeScriptCompile Include="app\task-list\task-list.component.ts" />
-    <TypeScriptCompile Include="app\task-list\task.model.ts" />
+    <TypeScriptCompile Include="app\task.model.ts" />
     <TypeScriptCompile Include="app\task.service.ts" />
   </ItemGroup>
   <PropertyGroup>

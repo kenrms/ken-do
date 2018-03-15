@@ -1,5 +1,5 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
-import { Task } from './task-list/task.model';
+import { Task } from './task.model';
 import { TaskListComponent } from './task-list/task-list.component';
 import { TaskService } from './task.service';
 
