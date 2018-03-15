@@ -33,4 +33,18 @@ export class TaskListComponent {
             this.tasks.unshift(t);
         }
     }
+
+    handleTaskDeleted(id: number) {
+        let index = -1;
+        for (let i = 0; i < this.tasks.length; i++) {
+            if (id === this.tasks[i].id) {
+                index = i;
+                break;
+            }
+        }
+        // makes sure we actually found it
+        if (index >= 0) {
+            this.tasks.splice(index, 1);
+        }
+    }
 }

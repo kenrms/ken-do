@@ -10,6 +10,7 @@
             <app-task-item *ngFor="let t of tasks"
                            [task]="t"
                            [hidden]="taskItem.task.isComplete && hideCompleted"
+                           (onDeleted)="handleTaskDeleted($event)"
                            #taskItem></app-task-item>
         </ul>
     </div>

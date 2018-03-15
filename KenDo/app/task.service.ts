@@ -23,4 +23,7 @@ export class TaskService {
         return this.http.post(`/api/tasks/${id}/toggleComplete`, null);
     }
 
+    deleteTask(id: any): any {
+        return this.http.delete(`/api/tasks/${id}`);
+    }
 }

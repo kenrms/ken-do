@@ -1,6 +1,5 @@
 ﻿<div class="list-group-item clearfix taskItem"
      [ngClass]="{ 'busy': isBusy, 'complete': task.isComplete }">
-
     <div class="form-check form-check-inline">
         <div class="col-xs-1">
             <input class="form-check-input"
@@ -10,7 +9,7 @@
                    (click)="toggleComplete()"
                    [disabled]="isBusy">
         </div>
-        <div class="col-xs-11">
+        <div class="col-xs-10">
             <form class="form-inline" #taskForm="ngForm" (ngSubmit)="trySave($event)">
                 <input type="text"
                        class="form-control mb-2 mr-sm-2"
@@ -25,6 +24,13 @@
                        #descInput>
             </form>
         </div>
+        <div class="col-xs-1">
+            <button type="button"
+                    class="btn btn-danger deleteBtn"
+                    (click)="tryDelete()"
+                    [disabled]="isBusy">
+                &#10005;
+            </button>
+        </div>
     </div>
-
 </div>

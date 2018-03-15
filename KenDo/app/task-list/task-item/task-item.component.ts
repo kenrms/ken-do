@@ -1,6 +1,7 @@
-﻿import { Component, Input } from '@angular/core';
+﻿import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from '../../task.model';
 import { TaskService } from '../../task.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
     selector: 'app-task-item',
@@ -9,6 +10,7 @@ import { TaskService } from '../../task.service';
 })
 export class TaskItemComponent {
     @Input() task: Task;
+    @Output() onDeleted = new EventEmitter<number>();
     isEditing: boolean;
     isBusy: boolean;
     private oldDesc = '';
@@ -67,6 +69,19 @@ export class TaskItemComponent {
                 this.task = data;
             },
             err => console.error(err),   // TODO handle error
+            () => {
+                this.isBusy = false;
+            });
+    }
+
+    tryDelete() {
+        this.isBusy = true;
+
+        this.taskService.deleteTask(this.task.id).subscribe(
+            () => {
+                this.onDeleted.emit(this.task.id);
+            },
+            (err: HttpErrorResponse) => console.error(err),
             () => {
                 this.isBusy = false;
             });
