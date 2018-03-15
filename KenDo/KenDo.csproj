@@ -185,6 +185,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="karma-test-shim.js" />
+    <Content Include="karma.conf.js" />
+    <Content Include="protractor.config.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -199,6 +202,8 @@
     <Content Include="Scripts\esm\popper.js.map" />
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="bs-config.e2e.json" />
+    <Content Include="bs-config.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -263,12 +268,14 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="app\app.component.spec.ts" />
     <TypeScriptCompile Include="app\app.component.ts" />
     <TypeScriptCompile Include="app\app.module.ts" />
     <TypeScriptCompile Include="app\create-task\create-task.component.ts" />
     <TypeScriptCompile Include="app\main.ts" />
     <TypeScriptCompile Include="app\task-list\task-item\task-item.component.ts" />
     <TypeScriptCompile Include="app\task-list\task-list.component.ts" />
+    <TypeScriptCompile Include="app\task-list\task-sort.pipe.spec.ts" />
     <TypeScriptCompile Include="app\task-list\task-sort.pipe.ts" />
     <TypeScriptCompile Include="app\task.model.ts" />
     <TypeScriptCompile Include="app\task.service.ts" />

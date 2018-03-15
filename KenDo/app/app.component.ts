@@ -9,7 +9,7 @@ import { TaskService } from './task.service';
 })
 export class AppComponent implements OnInit {
     @ViewChild(TaskListComponent) private taskListComponent: TaskListComponent;
-    loading: boolean;
+    loading = false;
 
     constructor(private taskService: TaskService) { }
 
