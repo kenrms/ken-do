@@ -269,6 +269,7 @@
     <TypeScriptCompile Include="app\task-list\task-sort.pipe.spec.ts" />
     <TypeScriptCompile Include="app\task-list\task-sort.pipe.ts" />
     <TypeScriptCompile Include="app\task.model.ts" />
+    <TypeScriptCompile Include="app\task.service.spec.ts" />
     <TypeScriptCompile Include="app\task.service.ts" />
   </ItemGroup>
   <PropertyGroup>
